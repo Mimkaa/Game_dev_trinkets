@@ -17,6 +17,7 @@ class Game:
     def load_data(self):
         self.font = path.join("PixelatedRegular-aLKm.ttf")
         self.lookup = pg.image.load(path.join("lookup.png")).convert_alpha()
+        self.flower=pg.image.load(path.join("flower.png")).convert_alpha()
 
     def draw_text(self, text, font_name, size, color, x, y, align="nw"):
         font = pg.font.Font(font_name, size)
@@ -55,7 +56,7 @@ class Game:
         self.surfaces[0].blit(lookup, (self.surfaces[0].get_width() / 2 - lookup.get_width() / 2,
                                        self.surfaces[0].get_height() / 2 - lookup.get_height() / 2))
 
-        self.agent = Testing(self, (self.surfaces[0].get_width() // 2, self.surfaces[0].get_height() // 2), self.lookup)
+        self.agent = Testing(self, (self.surfaces[0].get_width() // 2, self.surfaces[0].get_height() // 2), self.lookup, self.flower)
 
     def run(self):
         # game loop - set self.playing = False to end the game
